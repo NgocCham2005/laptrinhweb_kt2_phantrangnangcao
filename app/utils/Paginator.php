@@ -1,59 +1,93 @@
 <?php
 
 class Paginator {
-    private $totalRecords;
-    private $perPage;
-    private $currentPage;
+    private int $totalRecords;
+    private int $perPage;
+    private int $currentPage;
 
-    public function __construct($totalRecords, $perPage = 10, $currentPage = 1) {
-        $this->totalRecords = (int)$totalRecords;
-        $this->perPage = max(1, (int)$perPage);
-        $this->currentPage = max(1, (int)$currentPage);
+    public function __construct(int $totalRecords, int $perPage = 10, int $currentPage = 1) {
+        $this->totalRecords = max(0, $totalRecords);
+        $this->perPage = max(1, $perPage);
+        $this->currentPage = max(1, $currentPage);
     }
 
-    public function getTotalPages() {
-        if ($this->totalRecords == 0) return 1;
-        return ceil($this->totalRecords / $this->perPage);
+    // Tổng số trang
+    public function getTotalPages(): int {
+        return max(1, (int) ceil($this->totalRecords / $this->perPage));
     }
 
-    public function getCurrentPage() {
+    // Trang hiện tại (không vượt quá total)
+    public function getCurrentPage(): int {
         return min($this->currentPage, $this->getTotalPages());
     }
 
-    public function getOffset() {
+    // OFFSET cho SQL
+    public function getOffset(): int {
         return ($this->getCurrentPage() - 1) * $this->perPage;
     }
 
-    public function getLimit() {
+    // LIMIT cho SQL
+    public function getLimit(): int {
         return $this->perPage;
     }
 
-    public function hasPrev() {
+    // Có trang trước không
+    public function hasPrev(): bool {
         return $this->getCurrentPage() > 1;
     }
 
-    public function hasNext() {
+    // Có trang sau không
+    public function hasNext(): bool {
         return $this->getCurrentPage() < $this->getTotalPages();
     }
 
-    public function getPrevPage() {
+    // Trang trước
+    public function getPrevPage(): int {
         return max(1, $this->getCurrentPage() - 1);
     }
 
-    public function getNextPage() {
+    // Trang sau
+    public function getNextPage(): int {
         return min($this->getTotalPages(), $this->getCurrentPage() + 1);
     }
 
-    public function toArray() {
+    /**
+     * Lấy danh sách các page (quan trọng nhất)
+     * Ví dụ: current=5, range=2 → 3 4 [5] 6 7
+     */
+    public function getPageLinks(int $range = 2): array {
+        $current = $this->getCurrentPage();
+        $total = $this->getTotalPages();
+
+        $start = max(1, $current - $range);
+        $end = min($total, $current + $range);
+
+        $pages = [];
+
+        for ($i = $start; $i <= $end; $i++) {
+            $pages[] = [
+                'page' => $i,
+                'is_current' => ($i === $current)
+            ];
+        }
+
+        return $pages;
+    }
+
+    // Trả về dạng array cho controller/view
+    public function toArray(): array {
         return [
             'total_records' => $this->totalRecords,
             'per_page' => $this->perPage,
             'current_page' => $this->getCurrentPage(),
             'total_pages' => $this->getTotalPages(),
+
             'has_prev' => $this->hasPrev(),
             'has_next' => $this->hasNext(),
             'prev_page' => $this->getPrevPage(),
-            'next_page' => $this->getNextPage()
+            'next_page' => $this->getNextPage(),
+
+            'pages' => $this->getPageLinks()
         ];
     }
 }

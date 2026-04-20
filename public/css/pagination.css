@@ -1,1 +1,52 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
 
+.pagination a,
+.pagination span {
+    min-width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #e6e0f8;
+    text-decoration: none;
+    color: #5b4b8a;
+    background: #f9f7ff;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+/* Hover */
+.pagination a:hover {
+    background: #efeaff;
+    border-color: #d6ccff;
+}
+
+/* Active */
+.pagination .active {
+    background: #cfc4ff;
+    color: #3d2f7a;
+    border-color: #cfc4ff;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(180, 160, 255, 0.4);
+}
+
+/* Disabled */
+.pagination .disabled {
+    color: #bbb;
+    border-color: #eee;
+    background: #fafafa;
+    cursor: not-allowed;
+}
+
+/* Prev / Next */
+.pagination a:first-child,
+.pagination a:last-child {
+    padding: 0 10px;
+    font-weight: 500;
+}

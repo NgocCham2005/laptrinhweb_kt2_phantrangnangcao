@@ -4,8 +4,6 @@
                 <div class="sort-left">
                     <span class="sort-label">Sắp xếp theo</span>
                     <button class="btn-sort active">Liên Quan</button>
-                    <button class="btn-sort">Mới Nhất</button>
-                    <button class="btn-sort">Bán Chạy</button>
                     <select class="select-sort">
                         <option value="" selected hidden>Giá</option>
                         <option value="asc">Giá: Thấp đến Cao</option>
@@ -40,17 +38,4 @@
                 </div>
                 <?php endforeach; ?>
             </div>
-
-            <div class="pagination-wrapper">
-                <ul class="pagination">
-                    <li><a href="#" class="page-link disabled">&lt;</a></li>
-                    <li><a href="#" class="page-link active">1</a></li>
-                    <li><a href="#" class="page-link">2</a></li>
-                    <li><a href="#" class="page-link">3</a></li>
-                    <li><a href="#" class="page-link">4</a></li>
-                    <li><a href="#" class="page-link">5</a></li>
-                    <li><a href="#" class="page-link">&gt;</a></li>
-                </ul>
-            </div>
-
         </main>

@@ -11,14 +11,37 @@ $products = [
     ['id' => 8, 'name' => 'Lắc tay kim cương', 'price' => 500000],
     ['id' => 9, 'name' => 'Dây chuyền bạc cao cấp', 'price' => 700000]
 ];
-//Nhúng header
+
 require_once __DIR__ . '/../layouts/header.php';
 ?>
 
 <div class="container main-wrapper">
     <div class="main-layout">
-        <?php require_once __DIR__ . '/../components/sidebar_filter.php'; ?>
-        <?php require_once __DIR__ . '/../components/product_grid.php'; ?>
+        <aside class="sidebar-promo">
+            <div class="promo-container">
+                <div class="promo-banner">
+                    <img src="../images/banner.jpg" alt="Luminous Collection">
+                    
+                    <div class="promo-overlay">
+                        <span class="promo-subtitle">BST Mùa Hè</span>
+                        <h3 class="promo-title">Luminous</h3>
+                        <a href="#" class="promo-link">XEM CHI TIẾT &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="promo-banner">
+                    <img src="../images/banner.png" alt="Luminous Collection">
+                    
+                    <div class="promo-overlay">
+                        <h3 class="promo-title">Tôn vinh vẻ đẹp</h3>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="product-main-content">
+            <?php require_once __DIR__ . '/../components/product_grid.php'; ?>
+        </div>
     </div>
 </div>
 

@@ -36,13 +36,13 @@ class ProductController extends Controller {
         $sort = $_GET['sort'] ?? 'default'; // Các option: price_asc, price_desc, name_asc
         $perPage = 6; // Số sản phẩm trên 1 trang
 
-        // 2. Lấy tổng số sản phẩm từ Người 3
+        // 2. Lấy tổng số sản phẩm từ ProductRepository
         $totalRecords = $this->productRepo->countAll();
 
-        // 3. Khởi tạo bộ phân trang từ Người 2
+        // 3. Khởi tạo bộ phân trang từ Paginator
         $paginator = new Paginator($totalRecords, $perPage, $page);
 
-        // 4. Lấy danh sách sản phẩm từ Người 3 (đã kèm Limit, Offset, Sort)
+        // 4. Lấy danh sách sản phẩm từ ProductRepository (đã kèm Limit, Offset, Sort)
         $products = $this->productRepo->getAll(
             $paginator->getLimit(),
             $paginator->getOffset(),

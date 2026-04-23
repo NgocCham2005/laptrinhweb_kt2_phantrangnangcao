@@ -34,7 +34,7 @@ class ProductController extends Controller {
         // 1. Lấy tham số từ URL
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $sort = $_GET['sort'] ?? 'default'; // Các option: price_asc, price_desc, name_asc
-        $perPage = 6; // Số sản phẩm trên 1 trang
+        $perPage = 9; // Số sản phẩm trên 1 trang
 
         // 2. Lấy tổng số sản phẩm từ ProductRepository
         $totalRecords = $this->productRepo->countAll();

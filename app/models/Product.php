@@ -55,4 +55,8 @@ class Product
             $data['HinhAnh'] ?? null
         );
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/develop

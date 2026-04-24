@@ -13,31 +13,8 @@ class ProductController extends Controller {
      * Hiển thị trang chính (load lần đầu)
      */
     public function index() {
-<<<<<<< HEAD
         $data = $this->getProcessedData();
         // Render view index nằm trong thư mục views/product/
-=======
-        // 1. Lấy dữ liệu (sản phẩm, phân trang...)
-        $data = $this->getProcessedData();
-
-        // 2. Kiểm tra xem có phải yêu cầu Ajax không
-        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
-            
-            /** * AJAX CALL: 
-             * Chỉ render file _list.php, KHÔNG kèm theo layout main.php
-             * Đối chiếu hàm view của ông: $withLayout = false
-             */
-            $this->view("product/_list", $data, false);
-            
-            // Dừng luôn không cho chạy phần code bên dưới
-            exit; 
-        }
-
-        /** * NORMAL CALL: 
-         * Render trang index.php VÀ kèm theo layout main.php
-         * Đối chiếu hàm view của ông: $withLayout = true (mặc định)
-         */
->>>>>>> origin/develop
         $this->view("product/index", $data);
     }
 
@@ -47,11 +24,7 @@ class ProductController extends Controller {
     public function list() {
         $data = $this->getProcessedData();
         // Chỉ render phần danh sách sản phẩm và thanh phân trang
-<<<<<<< HEAD
         $this->view("product/_list", $data);
-=======
-        $this->view("product/_list", $data, false);
->>>>>>> origin/develop
     }
 
     /**

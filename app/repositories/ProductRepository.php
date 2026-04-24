@@ -28,11 +28,7 @@ class ProductRepository implements ProductRepositoryInterface
             $orderBy = "TenSanPham ASC";
         }
 
-<<<<<<< HEAD
-        $sql = "SELECT * FROM SanPham 
-=======
         $sql = "SELECT * FROM sanpham 
->>>>>>> origin/develop
                 ORDER BY $orderBy 
                 LIMIT $limit OFFSET $offset";
 

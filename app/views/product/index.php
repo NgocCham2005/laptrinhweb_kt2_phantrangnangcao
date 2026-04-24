@@ -67,4 +67,4 @@
         </div>
     </div>
 </div>
-<script src="/KT2/KT2 - MERGE TEST/public/js/app.js"></script>
+<script src="/laptrinhweb_kt2_phantrangnangcao/public/js/app.js"></script>

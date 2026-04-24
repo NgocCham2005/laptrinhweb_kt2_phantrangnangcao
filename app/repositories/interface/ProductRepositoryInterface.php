@@ -9,8 +9,4 @@ interface ProductRepositoryInterface
 
     // Đếm tổng sản phẩm
     public function countAll();
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/develop

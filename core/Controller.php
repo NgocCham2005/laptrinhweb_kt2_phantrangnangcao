@@ -5,14 +5,31 @@ abstract class Controller {
         echo json_encode($data);
         exit;
     }
-
-    protected function view(string $view, array $data = []): void {
+protected function view(string $view, array $data = [], bool $withLayout = true): void { 
         extract($data);
-        $viewFile = "../app/views/" . $view . ".php";
+        
+        $viewFile = __DIR__ . "/../app/views/" . $view . ".php";
+        $layoutFile = __DIR__ . "/../app/views/layouts/main.php";
+        
         if (file_exists($viewFile)) {
-            require_once $viewFile;
-        } else {
-            die("View {$view} not found.");
+            if ($withLayout) {
+                // Load toàn bộ trang (Có Header, Main, Footer)
+                ob_start(); 
+                require_once $viewFile;
+                $content = ob_get_clean();
+                
+                if (file_exists($layoutFile)) {
+                    require_once $layoutFile;
+                } else {
+                    die("Không tìm thấy Layout tại: " . $layoutFile);
+                }
+            } else {
+                // Dùng khi Ajax gọi danh sách sản phẩm _list.php
+                require_once $viewFile;
+            }
+        } 
+        else {
+            die("Không tìm thấy View tại: " . realpath($viewFile) . " (Đường dẫn gốc: " . $viewFile . ")");
         }
     }
 }

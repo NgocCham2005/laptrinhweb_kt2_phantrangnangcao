@@ -157,17 +157,20 @@ body {
     gap: 30px;
     align-items: flex-start; /* Giúp các cột không bị kéo giãn chiều cao bằng nhau */
 }
-
+.product-page-container {
+    display: flex;
+    gap: 30px; /* Khoảng cách giữa cột banner và cột sản phẩm */
+    align-items: flex-start; /* Cho các cột bắt đầu từ sát mép trên */
+    margin-top: 20px;
+}
 /* Khu vực chứa sản phẩm chiếm 80% */
 .product-main-content {
-    flex: 1; /* Tự động chiếm toàn bộ không gian còn lại */
-    min-width: 0; /* Chống lỗi vỡ layout của Flexbox */
+    flex-grow: 1; /* Tự động chiếm toàn bộ không gian còn lại */
+    width: 75%; /* Chống lỗi vỡ layout của Flexbox */
 }
 
-/* =========================================
-   BANNER QUẢNG CÁO BÊN TRÁI (20%)
-   ========================================= */
-.sidebar-promo {
+/* BANNER QUẢNG CÁO BÊN TRÁI (20%) */
+.product-sidebar {
     flex: 0 0 20%; /* Ép cứng chiều rộng 20% */
     max-width: 20%;
 }
@@ -184,7 +187,7 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 .promo-banner img {
@@ -253,46 +256,54 @@ body {
 
 .sort-label {
     color: #15264b;
-    font-size: 14px;
+    font-size: 15px;
     margin-right: 10px;
 }
 
 .btn-sort {
-padding: 8px 20px;
-    border: 1px solid #ddd;
+    padding: 4px 20px;
+    border: 1px solid #aaa;
     background-color: white;
     color: #15264b;
     cursor: pointer;
     border-radius: 20px;
-    transition: all 0.3s ease; /* Tạo hiệu ứng đổi màu mượt mà */
+    transition: all 0.3s ease;
     margin-right: 5px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.btn-sort:hover, .btn-sort.active ,.select-sort.active{
+.btn-sort:hover, .btn-sort.active {
     background-color: #D4AF37;
-    color: white;
-    border-color: #D4AF37;
+    color: #fff;
+    border-color: #aaa;
+    text-decoration: none;
 }
 
 .select-sort {
     padding: 6px 6px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #aaa;
     border-radius: 20px;
     font-size: 14px;
+    color: #15264b;
     text-align: center;
     outline: none;
     cursor: pointer;
 }
-
+.select-sort.active-price {
+    background-color: #d4af37; /* Nền vàng kim */
+    color: #ffffff; /* Chữ trắng */
+    border-color: #aaa; /* Viền vàng luôn cho mượt */
+}
 /* Mini Pagination */
 .mini-pagination {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
 .page-info {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .highlight {
@@ -304,24 +315,31 @@ padding: 8px 20px;
 }
 
 .btn-mini {
-    background: #fff;
-    border: 1px solid #15264b3e;
-    padding: 4px 10px;
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #aaa;
+    color: #15264b;
+    text-decoration: none;
+    transition: all 0.2s;
 }
 
 .btn-mini:first-child {
     border-right: none;
 }
 
-.btn-mini:hover:not([disabled]) {
-    background: #f9f9f9;
+.btn-mini:not(.disabled):hover {
+    background-color: #d4af37;
+    color: #fff;
 }
 
-.btn-mini[disabled] {
+.btn-mini.disabled {
     color: #ccc;
-    cursor: not-allowed;
-    background: #f1f1f1;
+    background: #fdfdfd;
+    cursor: not-allowed    !important;
+    pointer-events: none; /* Ngăn chặn mọi hành động click nếu là thẻ a */
 }
 
 /* --- LƯỚI SẢN PHẨM (CSS GRID) --- */
@@ -356,16 +374,20 @@ padding: 8px 20px;
 
 .product-img-placeholder {
     height: 200px;
-    background-color: #f8f9fa;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #999;
     font-size: 13px;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid #ccc;
     object-fit: cover;
 }
-
+.product-img-placeholder img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
 .product-info {
     padding: 15px;
     display: flex;
@@ -382,6 +404,11 @@ padding: 8px 20px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-material {
@@ -403,6 +430,7 @@ padding: 8px 20px;
     display: flex;
     gap: 10px; /* Khoảng cách giữa 2 nút */
     width: 100%;
+    padding: 0 15px 15px 15px;
 }
 
 /* Nút Xem chi tiết */
@@ -473,7 +501,7 @@ padding: 8px 20px;
     color: #15264b;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 15px;
     transition: 0.2s;
 }
 

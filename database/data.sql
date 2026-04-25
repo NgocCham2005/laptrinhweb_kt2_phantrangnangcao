@@ -49,7 +49,7 @@ INSERT INTO SanPham (MaSanPham, TenSanPham, Gia, ChatLieu, LoaiSanPham, HinhAnh)
 ('SP033', N'Nhẫn vàng trắng 58,5% (14K) đính đá Topaz', 7500000, N'Vàng trắng', N'Nhẫn', 'SP033.png'),
 ('SP034', N'Dây chuyền bạc ngọc trai', 1300000, N'Ngọc trai', N'Dây chuyền', 'SP034.png'),
 ('SP035', N'Bông tai kim cương vàng trắng 58,5% (14K)', 8230000, N'Vàng trắng', N'Bông tai', 'SP035.png'),
-('SP036', N'Lắc tay bạc đính đá Silver', 1300000, N'Bạc', N'Lắc tay', 'images/SP036.png'),
+('SP036', N'Lắc tay bạc đính đá Silver', 1300000, N'Bạc', N'Lắc tay', 'SP036.png'),
 ('SP037', N'Nhẫn vàng trắng 41,6% (10K) đính đá ECZ', 1800000, N'Vàng trắng', N'Nhẫn', 'SP037.png'),
 ('SP038', N'Mặt dây chuyền vàng 75% (18K) đính đá Ruby', 8200000, N'Vàng', N'Mặt dây chuyền', 'SP038.png'),
 ('SP039', N'Bông tai vàng đính đá ECZ', 8000000, N'Vàng', N'Bông tai', 'SP039.png'),

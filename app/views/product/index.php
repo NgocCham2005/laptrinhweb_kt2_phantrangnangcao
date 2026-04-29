@@ -2,7 +2,7 @@
     <div class="product-sidebar">
         <div class="promo-container">
             <div class="promo-banner">
-                <img src="<?= BASE_URL ?>/logo-banner/banner.jpg" alt="Luminous Collection">
+                <img src="<?= BASE_URL ?>/public/logo-banner/banner.jpg" alt="Luminous Collection">
                 
                 <div class="promo-overlay">
                     <span class="promo-subtitle">BST Mùa Hè</span>
@@ -12,7 +12,7 @@
             </div>
 
             <div class="promo-banner">
-                <img src="<?= BASE_URL ?>/logo-banner/banner.png" alt="Luminous Collection">
+                <img src="<?= BASE_URL ?>/public/logo-banner/banner.png" alt="Luminous Collection">
                 
                 <div class="promo-overlay">
                     <h3 class="promo-title">Tôn vinh vẻ đẹp</h3>

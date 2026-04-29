@@ -46,7 +46,7 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function countAll()
     {
-        $sql = "SELECT COUNT(*) as total FROM SanPham";
+        $sql = "SELECT COUNT(*) as total FROM sanpham";
         $stmt = $this->db->query($sql);
         $result = $stmt->fetch();
 

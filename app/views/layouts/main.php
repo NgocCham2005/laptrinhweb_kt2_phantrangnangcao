@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/pagination.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/css/pagination.css">
 
 </head>
 <body>
@@ -18,7 +18,7 @@
     <div class="container header-wrapper">
         <div class="header-left">
             <a href="<?= BASE_URL ?>/index.php" class="logo">
-                <img src="<?= BASE_URL ?>/logo-banner/logo.svg" alt="Luminous Logo" class="logo-img">
+                <img src="<?= BASE_URL ?>/public/logo-banner/logo.svg" alt="Luminous Logo" class="logo-img">
             </a>
         </div>
 

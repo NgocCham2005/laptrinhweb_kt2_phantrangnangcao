@@ -3,7 +3,7 @@
         <?php foreach ($products as $product): ?>
             <div class="product-card">
                 <div class="product-img-placeholder">
-                    <img src="<?= BASE_URL ?>/images/<?= $product->getHinhAnh() ?>" alt="<?= $product->getTenSanPham() ?>">
+                    <img src="<?= BASE_URL ?>/public/images/<?= $product->getHinhAnh() ?>" alt="<?= $product->getTenSanPham() ?>">
                 </div>  
             
                 <div class="product-info">

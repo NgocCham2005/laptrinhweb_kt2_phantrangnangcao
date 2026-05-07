@@ -1,3 +1,6 @@
-RewriteEngine On
-RewriteRule ^$ public/ [L]
-RewriteRule (.*) public/$1 [L]
+RewriteEngine On 
+#Bật module rewrite của Apache để đổi URL nội bộ
+RewriteRule ^$ public/ [L] 
+#Chuyển URL rỗng thành /public, sau đó dừng rewrite sau rule này
+RewriteRule (.*) public/$1 [L] 
+#Bắt được toàn bộ URL, chuyển thành public/$1=giá trị bắt được đầu tiên

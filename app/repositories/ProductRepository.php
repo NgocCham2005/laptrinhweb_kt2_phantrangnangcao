@@ -49,7 +49,6 @@ class ProductRepository implements ProductRepositoryInterface
         $sql = "SELECT COUNT(*) as total FROM SanPham";
         $stmt = $this->db->query($sql);
         $result = $stmt->fetch();
-
         return $result['total'];
     }
 }

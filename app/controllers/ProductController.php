@@ -21,7 +21,6 @@ class ProductController extends Controller {
             
             /** * AJAX CALL: 
              * Chỉ render file _list.php, KHÔNG kèm theo layout main.php
-             * Đối chiếu hàm view của ông: $withLayout = false
              */
             $this->view("product/_list", $data, false);
             
@@ -31,7 +30,6 @@ class ProductController extends Controller {
 
         /** * NORMAL CALL: 
          * Render trang index.php VÀ kèm theo layout main.php
-         * Đối chiếu hàm view của ông: $withLayout = true (mặc định)
          */
         $this->view("product/index", $data);
     }

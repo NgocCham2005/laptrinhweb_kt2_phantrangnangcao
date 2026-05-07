@@ -1,5 +1,10 @@
-Options -Indexes
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+Options -Indexes 
+#Chặn xem danh sách file
+RewriteEngine On 
+#Bật module rewrite của Apache để đổi URL nội bộ
+RewriteCond %{REQUEST_FILENAME} !-f 
+#Không rewrite file .css, .js
+RewriteCond %{REQUEST_FILENAME} !-d 
+#Không rewrite folder images
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA] 
+#Lấy toàn bộ url, ép về index, lấy giá trị bắt được đầu tiên, dừng rewrite sau rule này, giữ lại query string cũ

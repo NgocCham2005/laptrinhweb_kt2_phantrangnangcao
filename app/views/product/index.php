@@ -29,12 +29,21 @@
                 <?php 
                 // Kiểm tra xem có đang sắp xếp theo giá không
                     $isSortingPrice = ($currentSort == 'price_asc' || $currentSort == 'price_desc');
-                    $activeClass = $isSortingPrice ? 'active-price' : '';
+                    $activePrice = $isSortingPrice ? 'active-price' : '';
+                //Kiểm tra xem có đang sắp xếp theo tên không
+                    $isSortingName = ($currentSort == 'name_asc' || $currentSort == 'name_desc');
+                    $activeName = $isSortingName ? 'active-name' : '';
                 ?>
-                <select class="select-sort <?= $activeClass ?>" onchange="location = this.value;">
+                
+                <select class="select-sort <?= $activePrice ?>" onchange="location = this.value;">
                     <option value="" selected hidden>Giá</option>
                     <option value="?url=product/index&sort=price_asc" <?= $currentSort == 'price_asc' ? 'selected' : '' ?>>Giá: Thấp đến Cao</option>
                     <option value="?url=product/index&sort=price_desc" <?= $currentSort == 'price_desc' ? 'selected' : '' ?>>Giá: Cao đến Thấp</option>
+                </select>
+                <select class="select-sort <?= $activeName ?>" onchange="location = this.value;">
+                    <option value="" selected hidden>Tên</option>
+                    <option value="?url=product/index&sort=name_asc"<?= $currentSort == 'name_asc' ? 'selected' : '' ?>>Tên từ A-Z</option>
+                    <option value="?url=product/index&sort=name_desc"<?= $currentSort == 'name_desc' ? 'selected' : '' ?>>Tên từ Z-A</option>
                 </select>
             </div>
             

@@ -13,7 +13,7 @@ class ProductController extends Controller {
     public function index() {
         $data = $this->getProcessedData();
 
-        // 2. Kiểm tra xem có phải yêu cầu Ajax không
+        // Kiểm tra xem có phải yêu cầu Ajax không
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
             
             //AJAX CALL: Chỉ render file _list.php, KHÔNG kèm theo layout main.php

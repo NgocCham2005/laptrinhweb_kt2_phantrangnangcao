@@ -9,42 +9,32 @@ class ProductController extends Controller {
         $this->productRepo = new ProductRepository();
     }
 
-    /**
-     * Hiển thị trang chính (load lần đầu)
-     */
+    // Hiển thị trang chính (load lần đầu)
     public function index() {
         $data = $this->getProcessedData();
 
         // 2. Kiểm tra xem có phải yêu cầu Ajax không
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
             
-            /** * AJAX CALL: 
-             * Chỉ render file _list.php, KHÔNG kèm theo layout main.php
-             */
+            //AJAX CALL: Chỉ render file _list.php, KHÔNG kèm theo layout main.php
             $this->view("product/_list", $data, false);
             
             // Dừng luôn không cho chạy phần code bên dưới
             exit; 
         }
 
-        /** * NORMAL CALL: 
-         * Render trang index.php VÀ kèm theo layout main.php
-         */
+        //NORMAL CALL: Render trang index.php VÀ kèm theo layout main.php
         $this->view("product/index", $data);
     }
 
-    /**
-     * Trả về kết quả cho AJAX
-     */
+    //Trả về kết quả cho AJAX
     public function list() {
         $data = $this->getProcessedData();
         // Chỉ render phần danh sách sản phẩm và thanh phân trang
         $this->view("product/_list", $data);
     }
 
-    /**
-     * Hàm trung tâm để xử lý dữ liệu từ Repo và Paginator
-     */
+    // Hàm trung tâm để xử lý dữ liệu từ Repo và Paginator
     private function getProcessedData() {
         // 1. Lấy tham số từ URL
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;

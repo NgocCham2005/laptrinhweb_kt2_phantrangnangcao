@@ -5,7 +5,7 @@ class Paginator {
     private int $perPage;
     private int $currentPage;
 
-    public function __construct(int $totalRecords, int $perPage = 9, int $currentPage = 1) {
+    public function __construct(int $totalRecords, int $perPage, int $currentPage) {
         $this->totalRecords = max(0, $totalRecords);
         $this->perPage = max(1, $perPage);
         $this->currentPage = max(1, $currentPage);

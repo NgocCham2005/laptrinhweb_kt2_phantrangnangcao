@@ -28,7 +28,7 @@ class ProductRepository implements ProductRepositoryInterface
             $orderBy = "TenSanPham ASC";
         }
         elseif ($sort == 'name_desc') {
-            $orderBy = "TenSanPham DESC";
+        $orderBy = "TenSanPham DESC";
         }
 
         $sql = "SELECT * FROM sanpham 

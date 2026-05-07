@@ -8,7 +8,6 @@ class ProductController extends Controller {
     public function __construct() {
         $this->productRepo = new ProductRepository();
     }
-    
     // Chỉ dùng để load trang lần đầu (kèm Header/Footer)
     public function index() {
         $data = $this->getProcessedData();

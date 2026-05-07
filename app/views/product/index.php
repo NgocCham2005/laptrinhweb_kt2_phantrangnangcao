@@ -30,7 +30,7 @@
                 // Kiểm tra xem có đang sắp xếp theo giá không
                     $isSortingPrice = ($currentSort == 'price_asc' || $currentSort == 'price_desc');
                     $activePrice = $isSortingPrice ? 'active-price' : '';
-                // Kiểm tra xem có đang sắp xếp theo tên không
+                //Kiểm tra xem có đang sắp xếp theo tên không
                     $isSortingName = ($currentSort == 'name_asc' || $currentSort == 'name_desc');
                     $activeName = $isSortingName ? 'active-name' : '';
                 ?>
